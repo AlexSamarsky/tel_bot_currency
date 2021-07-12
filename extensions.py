@@ -29,6 +29,10 @@ class Currencies:
         if not cur_from in currencies or not cur_to in currencies:
             raise ConvertExeption('Не известные валюты')
         
+        if cur_from == cur_to:
+            raise ConvertExeption('Нельзя перевести валюту саму в себя')
+            
+        
         key_cur_from = currencies[cur_from]
         key_cur_to = currencies[cur_to]
         
